@@ -2,5 +2,7 @@
 <h1 class="text-3xl font-bold underline">
   Hello world! {{ .title }}
 </h1>
-<p>Current time: {{ .currentTime }}</p>
+<div hx-get="/current-time" hx-swap="innerHTML" hx-trigger="every 1s">
+  {{ template "components.current-time" . }}
+</div>
 {{ template "base.bottom" . }}
